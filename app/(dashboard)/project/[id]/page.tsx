@@ -20,7 +20,7 @@ export default async function ProjectPage({ params }) {
 
   return (
     <div className="h-full overflow-y-auto pr-6 w-1/1">
-      <TasksCard tasks={project.tasks} title={project.name} />
+      {/* <TasksCard tasks={project.tasks} title={project.name} /> */}
     </div>
   );
 }

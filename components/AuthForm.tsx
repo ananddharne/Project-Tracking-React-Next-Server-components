@@ -50,10 +50,9 @@ export default function AuthForm({ mode }: { mode: "register" | "signin" }) {
       }
     },
     [
-      formState.email,
-      formState.password,
-      formState.firstName,
-      formState.lastName,
+      formState,
+      mode,
+      router
     ]
   );
 
@@ -137,7 +136,7 @@ export default function AuthForm({ mode }: { mode: "register" | "signin" }) {
               </span>
             </div>
             <div>
-              <Button type="submit" size="" intent="secondary">
+              <Button type="submit" intent="secondary">
                 {content.buttonText}
               </Button>
             </div>

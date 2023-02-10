@@ -1,9 +1,12 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import '@/styles/global.css'
 
 import GlassPane from "../../components/GlassPane";
-
-export default function AuthRootLayout({ children }) {
+interface Props {
+  children?: ReactNode
+  // any props that come into the component
+}
+export default function AuthRootLayout({ children, ...props }: Props) {
   return (
     <html lang="en">
       <body className="h-screen w-screen rainbow-mesh p-6">
