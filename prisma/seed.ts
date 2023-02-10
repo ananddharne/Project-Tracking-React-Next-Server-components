@@ -1,4 +1,4 @@
-// import { hashPassword } from "@/lib/auth";
+import { hashPassword } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { TASK_STATUS } from "@prisma/client";
 
@@ -15,18 +15,12 @@ async function main() {
   const user = await db.user.upsert({
     where: { email: "dharneanand92@gmail.com" },
     update: {
-      projects: {
-        create: new Array(5).fill(1).map((_, i) => ({
-          name: `Project ${i}`,
-          due: new Date(2022, 11, 25),
-        })),
-      },
     },
     create: {
       email: "user@email.com",
       firstName: "User",
       lastName: "Person",
-      password: 'password',
+      password: await hashPassword("password"),
       projects: {
         create: new Array(5).fill(1).map((_, i) => ({
           name: `Project ${i}`,
