@@ -37,10 +37,10 @@ export default async function Page() {
         </Suspense>
 
         </div>
-        <div className="flex flex-2 grow items-center flex-wrap mt-3 -m-3 ">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-2">
           {
                projects.map((project) => (
-                <div className="w-1/3 p-3" key={project.id}>
+                <div className="p-3" key={project.id}>
                   <Link href={`/project/${project.id}`}>
                     <ProjectCard project={project} />
                   </Link>
